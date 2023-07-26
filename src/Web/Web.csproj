@@ -8,6 +8,8 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Web' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Web - PROD' " />
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
   </ItemGroup>
@@ -32,6 +34,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>     
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\fonts\" />
