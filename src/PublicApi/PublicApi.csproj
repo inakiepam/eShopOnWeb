@@ -31,6 +31,7 @@
 
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
+    <PackageReference Include="Microsoft.VisualStudio.SnapshotDebugger.AzureAppServices.Standalone" />
   </ItemGroup>
 
   <ItemGroup>

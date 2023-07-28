@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using BlazorShared;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.ApplicationInsights;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.eShopWeb;
@@ -134,6 +135,18 @@ app.Logger.LogInformation("Seeding Database...");
 using (var scope = app.Services.CreateScope())
 {
     var scopedProvider = scope.ServiceProvider;
+
+    try
+    {
+        throw new Exception("Cannot move further");
+
+    }
+    catch (Exception ex)
+    {
+        var telemetry = new TelemetryClient();
+        telemetry.TrackException(ex);
+    }
+
     try
     {
         var catalogContext = scopedProvider.GetRequiredService<CatalogContext>();
